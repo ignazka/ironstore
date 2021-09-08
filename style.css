@@ -3,10 +3,23 @@
 
 body{
     background-color: rgb(136, 136, 185);
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}  
 
 img {
-    width: 100px;
+    width: 50px;
+}
+
+#cart {
+    background-color: salmon;
+    width: 50vh;
+    margin-left: 100px;
+}
+
+#items {
+    width: 50vh;
 }
 
 
