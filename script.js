@@ -29,6 +29,21 @@ let items = [
 let cart = []
 
 
+items.forEach (item => {
+  console.log(item.name);
+});
+
+console.log("hello");
+
+
+
+
+
+
+
+
+
+/*
 let list = document.querySelector('#items')
 
 items.forEach((item,i)=>{
@@ -81,3 +96,4 @@ function inputChange(i, name, price,image) {
 }
 
 //document.querySelector('#two').style.backgroundColor = 'blue'
+*/
