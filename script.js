@@ -32,8 +32,7 @@ let cart = []
 let list = document.querySelector("#items");
 
 items.forEach((item, i) => {
-  list.innerHTML += `
-  <li>
+  list.innerHTML += `<li>
   <div>Name: ${item.name}</div>
   <div>Price: ${item.price}</div>
   <img src=${item.image}>
@@ -46,17 +45,19 @@ items.forEach((item, i) => {
 
 function showCart() {
   let cartItems = document.querySelector("#cart");
-  cartItems.innerHTML = "";    // only shows new items in cart
+  // show only new items in cart
 
+  cartItems.innerHTML = '';
+  let grandTotal = 0;
   cart.forEach((item, i) => {
-    cartItems.innerHTML += `
-    <li>
+    grandTotal += item.price * item.quantity;
+    cartItems.innerHTML += `<li>
     <div>Name: ${item.name}</div>
     <div>Quantity: ${item.quantity}</div>
     <img src= "${item.image}" />
-   
     </li>`
-  })
+  });
+  document.querySelector('#grandTotal').innerHTML = '$' + grandTotal;
 }
 
 
@@ -73,7 +74,7 @@ function inputChange(i, name, price, image) {
       price: price,
       image: image
     });
-    console.log(cart);
-    showCart()
+
+    showCart();
   }
 };
