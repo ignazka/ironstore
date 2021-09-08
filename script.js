@@ -46,6 +46,7 @@ items.forEach((item, i) => {
 
 function showCart() {
   let cartItems = document.querySelector("#cart");
+  cartItems.innerHTML = "";    // only shows new items in cart
 
   cart.forEach((item, i) => {
     cartItems.innerHTML += `
