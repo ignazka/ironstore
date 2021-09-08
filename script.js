@@ -27,69 +27,33 @@ let items = [
   },
 ];
 
+let cart = []
+
 let list = document.querySelector("ul");
 
-items.forEach((item) => {
+items.forEach((item, i) => {
   list.innerHTML += `
   <li>
   <div>Name: ${item.name}</div>
-  <div>Price: $${item.price}</div>
+  <div>Price: ${item.price}</div>
   <img src=${item.image}>
-  </li>`;
-
-});
-
-/*
-let list = document.querySelector('#items')
-
-items.forEach((item,i)=>{
-    list.innerHTML += `<li>
-        <div>Name: ${item.name}</div>
-        <div>price: $${item.price}</div>
-        <image src="${item.image}" />
-        <input type="number" placeholder="quantity" onchange='inputChange(${i}, "${item.name}", "${item.price}", "${item.image}")'/>
-        <button>Buy Item</button>
-    </li>`
+  <input type="number" placeholder="quantity" onchange='inputChange(${i}, "${item.name}", "${item.price}")' />
+  <button>Buy Item</button>
+  </li>`
 })
 
 
-function showCart() {
-    let cartItems = document.querySelector('#cart')
-    let grandTotal = 0;
-    cartItems.innerHTML = ''
-    cart.forEach((item,i)=>{
-        grandTotal+= item.price * item.quantity
-        cartItems.innerHTML += `<li>
-            <div>Name: ${item.name}</div>
-            <div>Quantity: ${item.quantity}</div>
-            <image src="${item.image}" />
-        </li>`
-    })
+function inputChange(i, name, price) {
+  let listItem = document.querySelectorAll('li')[i];
+  let input = listItem.querySelector('input');
+  let button = listItem.querySelector('button');
 
-    document.querySelector('#grandTotal').innerHTML = '$' +grandTotal
-
-}
-
-
-
-function inputChange(i, name, price,image) {
-    console.log('I want to buy the ',i,' item named, ',name, ' that costs $',price)
-    let listItem = document.querySelectorAll('li')[i]
-    let input = listItem.querySelector('input')
-    let button = listItem.querySelector('button')
-
-    button.onclick = function(){
-        cart.push({
-            quantity: input.value,
-            name: name,
-            price: price,
-            image: image
-        })
-        console.log(cart)
-        showCart()
-    }
-
-}
-
-//document.querySelector('#two').style.backgroundColor = 'blue'
-*/
+  button.onclick = function () {
+    cart.push({
+      quantity: input.value,
+      name: name,
+      price: price
+    });
+    console.log(cart);
+  }
+};
